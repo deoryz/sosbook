@@ -1,0 +1,12 @@
+Redirect 301 /about/tos http://findtoko.com/about
+Redirect 301 /register/index‎ http://findtoko.com/about
+Redirect 301 /login/index‎ http://findtoko.com/about
+Redirect 301 /login/lupapass‎ http://findtoko.com/about
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php
+
