@@ -20,4 +20,30 @@ class ControllerAdmin extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+
+	// pasang meta description dan keyword
+	public $metaDesc;
+	public $metaKey;
+	public $metaImage;
+
+	// simpan language ID
+	public $languageID;
+	public $setting=array();
+	public $idController;
+
+	public function beforeAction($action)
+	{
+		if ($_GET['lang']) {
+			Yii::app()->language = $_GET['lang'];
+		}
+		$this->languageID = Language::model()->find('code = :code', array(':code'=>Yii::app()->language))->id;
+		$this->setting = Setting::model()->getSetting(Yii::app()->language);
+		// $this->idController = $this->id;
+
+		$this->pageTitle = $this->setting['title'];
+		$this->metaDesc = $this->setting['description'];
+		$this->metaKey = $this->setting['keywords'];
+
+		return true;
+	}
 }

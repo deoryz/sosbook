@@ -37,6 +37,7 @@ class m141015_062851_listing extends CDbMigration
 		$this->execute("
 		CREATE TABLE IF NOT EXISTS `sosbook` (
 		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `url` varchar(255) NOT NULL,
 		  `slug` varchar(200) NOT NULL,
 		  `category_id` int(11) NOT NULL,
 		  `title` varchar(200) NOT NULL,

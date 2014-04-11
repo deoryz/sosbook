@@ -46,7 +46,6 @@ class Controller extends CController
 		$this->pageTitle = $this->setting['title'];
 		$this->metaDesc = $this->setting['description'];
 		$this->metaKey = $this->setting['keywords'];
-		$this->reservasi = new ReservationForm;
 
 		return true;
 	}
